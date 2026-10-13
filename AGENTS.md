@@ -137,6 +137,21 @@ per state machine and one `sequence-<scenario>-report.md` per scenario. Fix ever
 messages are printed above the summary. Do not edit the report or the files in
 `project/diagrams/output/`: they are regenerated on every run.
 
+## Model alignment and human gates
+
+Follow the phased, human-gated plan in
+[project/process/plans/2026-10-13-lab-booking-implementation.md](project/process/plans/2026-10-13-lab-booking-implementation.md).
+Pause after every phase and wait for human approval before starting the next phase.
+Record each gate decision and changed assumption in the process specifications.
+
+The model decisions and known contradictions are recorded in
+[project/process/specs/ground-truth-research.md](project/process/specs/ground-truth-research.md)
+and [project/process/specs/implementation-quality-specification.md](project/process/specs/implementation-quality-specification.md).
+Never silently resolve an ambiguity, add an unmodeled API or cross-class call, or treat a
+known diagram mismatch as success. Every failure, assumption, deviation, warning, and
+verifier report entry must be surfaced in the final report. Model alignment is a release
+criterion, not an optional quality improvement.
+
 ## Process files
 
 Keep your working notes in `project/process/`:
