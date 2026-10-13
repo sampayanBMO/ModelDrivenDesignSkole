@@ -3,7 +3,7 @@
 ## Scope
 
 Implementation completed from the approved phased plan in
-[2026-10-13-lab-booking-implementation.md](../plans/2026-10-13-lab-booking-implementation.md).
+[2026-10-13-lab-booking-implementation.md](../plans/completed/2026-10-13-lab-booking-implementation.md).
 The input diagrams were not edited. Code-generated diagrams and verifier reports were
 regenerated from the implementation.
 

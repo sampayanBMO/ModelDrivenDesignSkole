@@ -140,7 +140,7 @@ messages are printed above the summary. Do not edit the report or the files in
 ## Model alignment and human gates
 
 Follow the phased, human-gated plan in
-[project/process/plans/2026-10-13-lab-booking-implementation.md](project/process/plans/2026-10-13-lab-booking-implementation.md).
+[project/process/plans/completed/2026-10-13-lab-booking-implementation.md](project/process/plans/completed/2026-10-13-lab-booking-implementation.md).
 Pause after every phase and wait for human approval before starting the next phase.
 Record each gate decision and changed assumption in the process specifications.
 
