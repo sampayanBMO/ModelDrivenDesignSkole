@@ -4,6 +4,7 @@
 
 namespace lab_booking {
 
+/// A booking whose lifecycle is controlled by the modeled state machine.
 class Booking
 {
 public:
@@ -17,8 +18,11 @@ public:
     explicit Booking(int bookingId);
     Booking(int bookingId, std::string status);
 
+    /// Moves an approved booking into the InUse state.
     void startBooking();
+    /// Moves an in-use booking into the Finished state.
     void endBooking();
+    /// Applies one modeled event; events without a valid transition are ignored.
     void handle(Event event);
 
 private:

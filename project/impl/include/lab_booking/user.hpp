@@ -4,6 +4,7 @@
 
 namespace lab_booking {
 
+/// Common identity and department data shared by students and administrators.
 class User
 {
 public:

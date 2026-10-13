@@ -8,6 +8,7 @@ namespace lab_booking {
 
 class Booking;
 
+/// Laboratory equipment and its active booking interval.
 class Equipment
 {
 public:
@@ -21,9 +22,11 @@ public:
 
     Equipment(int equipmentId, std::string name);
 
+    /// Reserves the equipment for an approved booking and marks it in use.
     void startBooking(Booking& booking,
                       std::chrono::system_clock::time_point startDate,
                       std::chrono::system_clock::time_point endDate);
+    /// Releases the active booking; repeated release is harmless.
     void endBooking();
 
 private:
