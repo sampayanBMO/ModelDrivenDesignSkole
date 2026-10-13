@@ -177,6 +177,12 @@ tracing.
 
 ## Phase 5 — Scenario programs and trace alignment
 
+### Gate decision
+
+The human approved a deterministic implementation of the current single scenario while
+retaining the model conflict as a reported deviation. The scenario uses separate booking
+objects for approval and rejection so no invalid state transition is forced.
+
 ### Work
 
 - Finalize the scenario interpretation approved at Gate 0.
