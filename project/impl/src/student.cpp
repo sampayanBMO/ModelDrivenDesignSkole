@@ -19,6 +19,9 @@ void Student::requestBooking(Booking& booking, Equipment& equipment,
     if (startDate >= endDate) {
         throw std::invalid_argument("booking end must be after booking start");
     }
+    if (booking.status != "pending") {
+        throw std::logic_error("only a pending booking can be requested");
+    }
     for (const Equipment::Reservation& reservation : equipment.reservations_) {
         if (reservation.booking == &booking) {
             throw std::logic_error("booking has already been requested");

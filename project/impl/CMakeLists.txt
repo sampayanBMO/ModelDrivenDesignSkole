@@ -34,3 +34,7 @@ add_test(NAME booking_tests COMMAND booking_tests)
 add_executable(equipment_tests tests/equipment_tests.cpp)
 target_link_libraries(equipment_tests PRIVATE lab_booking)
 add_test(NAME equipment_tests COMMAND equipment_tests)
+
+add_executable(workflow_tests tests/workflow_tests.cpp)
+target_link_libraries(workflow_tests PRIVATE lab_booking)
+add_test(NAME workflow_tests COMMAND workflow_tests)
