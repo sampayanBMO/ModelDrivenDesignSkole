@@ -30,3 +30,7 @@ target_link_libraries(scenario_diagram PRIVATE lab_booking)
 add_executable(booking_tests tests/booking_tests.cpp)
 target_link_libraries(booking_tests PRIVATE lab_booking)
 add_test(NAME booking_tests COMMAND booking_tests)
+
+add_executable(equipment_tests tests/equipment_tests.cpp)
+target_link_libraries(equipment_tests PRIVATE lab_booking)
+add_test(NAME equipment_tests COMMAND equipment_tests)

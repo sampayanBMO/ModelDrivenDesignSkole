@@ -119,6 +119,13 @@ not visible in the state diagram.
 
 ## Phase 3 — Equipment lifecycle and booking behavior
 
+### Gate decision
+
+The human approved a private interval registry inside `Equipment` so the full half-open
+no-overlap rule can be enforced for pending and future bookings without changing the
+public UML surface. This is an intentional private implementation detail and must be
+reported as an approved model-preserving implementation extension.
+
 ### Work
 
 - Implement equipment attributes and the non-owning equipment-to-booking association.

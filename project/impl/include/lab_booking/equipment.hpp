@@ -25,6 +25,18 @@ public:
                       std::chrono::system_clock::time_point startDate,
                       std::chrono::system_clock::time_point endDate);
     void endBooking();
+
+private:
+    friend class Student;
+
+    struct Reservation
+    {
+        Booking* booking;
+        std::chrono::system_clock::time_point start;
+        std::chrono::system_clock::time_point end;
+    };
+
+    std::vector<Reservation> reservations_;
 };
 
 }  // namespace lab_booking

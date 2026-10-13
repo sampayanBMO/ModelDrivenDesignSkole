@@ -19,14 +19,18 @@ void Student::requestBooking(Booking& booking, Equipment& equipment,
     if (startDate >= endDate) {
         throw std::invalid_argument("booking end must be after booking start");
     }
-    for (const Booking* existing : equipment.booked_in_) {
-        if (existing == &booking) {
+    for (const Equipment::Reservation& reservation : equipment.reservations_) {
+        if (reservation.booking == &booking) {
             throw std::logic_error("booking has already been requested");
+        }
+        if (startDate < reservation.end && reservation.start < endDate) {
+            throw std::logic_error("equipment booking overlaps an existing reservation");
         }
     }
 
     requests_.push_back(&booking);
     equipment.booked_in_.push_back(&booking);
+    equipment.reservations_.push_back({&booking, startDate, endDate});
 }
 
 void Student::cancelBooking(Booking& booking, Equipment& equipment)
@@ -34,6 +38,14 @@ void Student::cancelBooking(Booking& booking, Equipment& equipment)
     booking.handle(Booking::Event::cancelBooking);
     if (equipment.whichBooking == &booking) {
         equipment.endBooking();
+    } else {
+        for (auto reservation = equipment.reservations_.begin();
+             reservation != equipment.reservations_.end(); ++reservation) {
+            if (reservation->booking == &booking) {
+                equipment.reservations_.erase(reservation);
+                break;
+            }
+        }
     }
 }
 
