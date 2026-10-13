@@ -29,33 +29,28 @@ void Booking::handle(Event event)
     for (const Transition& transition : transitions) {
         if (transition.from == state_ && transition.event == event) {
             state_ = transition.to;
-            synchronizeStatus();
+            switch (state_) {
+            case State::Pending:
+                status = "pending";
+                break;
+            case State::Approved:
+                status = "approved";
+                break;
+            case State::Rejected:
+                status = "rejected";
+                break;
+            case State::InUse:
+                status = "in_use";
+                break;
+            case State::Cancelled:
+                status = "cancelled";
+                break;
+            case State::Finished:
+                status = "finished";
+                break;
+            }
             return;
         }
-    }
-}
-
-void Booking::synchronizeStatus()
-{
-    switch (state_) {
-    case State::Pending:
-        status = "pending";
-        break;
-    case State::Approved:
-        status = "approved";
-        break;
-    case State::Rejected:
-        status = "rejected";
-        break;
-    case State::InUse:
-        status = "in_use";
-        break;
-    case State::Cancelled:
-        status = "cancelled";
-        break;
-    case State::Finished:
-        status = "finished";
-        break;
     }
 }
 

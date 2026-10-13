@@ -4,6 +4,7 @@ project(lab_booking CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+enable_testing()
 
 add_library(lab_booking STATIC
     src/admin.cpp
@@ -25,3 +26,7 @@ target_link_libraries(demo PRIVATE lab_booking)
 
 add_executable(scenario_diagram scenarios/diagram.cpp)
 target_link_libraries(scenario_diagram PRIVATE lab_booking)
+
+add_executable(booking_tests tests/booking_tests.cpp)
+target_link_libraries(booking_tests PRIVATE lab_booking)
+add_test(NAME booking_tests COMMAND booking_tests)

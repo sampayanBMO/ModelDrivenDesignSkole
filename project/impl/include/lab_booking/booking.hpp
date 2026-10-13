@@ -42,7 +42,6 @@ private:
         {State::InUse, Event::endBooking, State::Finished, nullptr, nullptr},
     };
 
-    void synchronizeStatus();
 };
 
 }  // namespace lab_booking
